@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Tools - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <main id="main">
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Tools</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>Tools</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section class="tools">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Tools</h2>
+                </div>
+                <div>
+                    <a href="?page=resetData" class="btn btn-danger">Reset Data</a>
+                    <a href="?page=make-admin&to={{ app.session.username ?? 'bob' }}" class="btn btn-warning disabled" disabled>Make me admin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

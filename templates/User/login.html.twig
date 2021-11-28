@@ -1,0 +1,77 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <style>
+        .form-signin {
+            width: 100%;
+            max-width: 330px;
+            padding: 15px;
+            margin: auto;
+        }
+
+        .form-signin .checkbox {
+            font-weight: 400;
+        }
+
+        .form-signin .form-floating:focus-within {
+            z-index: 2;
+        }
+
+        .form-signin input[type="email"] {
+            margin-bottom: -1px;
+            border-bottom-right-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+
+        .form-signin input[type="password"] {
+            margin-bottom: 10px;
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+    </style>
+    <main id="main" class="text-center form-signin">
+        <div class="container">
+            <form action="?page=login" method="post" onSubmit="return checkForm()">
+                <img class="mb-4" src="https://ih1.redbubble.net/image.659413411.3655/st,small,507x507-pad,600x600,f8f8f8.u1.jpg" alt="" width="90" height="90">
+                <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+                <div class="form-floating">
+                    <input type="text" pattern="[a-zA-Z0-9]+" minlength="4" maxlength="7" class="form-control" id="floatingUsername" name="username" placeholder="Username">
+                    <label for="floatingUsername">Username</label>
+                </div>
+                <div class="form-floating">
+                    <input type="password" pattern="[a-zA-Z0-9]+" minlength="4" maxlength="7" class="form-control" id="floatingPassword" name="password" placeholder="Password">
+                    <label for="floatingPassword">Password</label>
+                </div>
+                {% if error %}
+                    <p class="text-danger">Invalid username or password!</p>
+                {% endif %}
+
+                <div class="checkbox mb-3">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+                <input class="w-100 btn btn-lg btn-primary" type="submit" value="Sign in">
+            </form>
+        </div>
+    </main>
+
+    <script>
+        function checkForm() {
+            if (false === /^[a-zA-Z0-9]+$/.test(document.getElementById('floatingUsername').value)) {
+                document.getElementById('floatingUsername').classList.add('is-invalid')
+                return false;
+            }
+
+            if (false === /^[a-zA-Z0-9]+$/.test(document.getElementById('floatingPassword').value)) {
+                document.getElementById('floatingPassword').classList.add('is-invalid')
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+{% endblock %}

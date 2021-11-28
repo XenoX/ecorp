@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Afterwork - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <main id="main">
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Afterwork #ecorp</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>Afterwork</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section class="tools">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Afterwork</h2>
+                </div>
+                {% if flag %}
+                    <p class="text-center text-success">Flag : {{ flag }}</p>
+                {% endif %}
+                <p class="text-center text-warning">This page is under construction. You can still upload photos.</p>
+                <div>
+                    <hr class="my-5">
+                    <h3 class="mb-4">Upload your best afterwork memory</h3>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type="file" id="imageFile" name="imageFile">
+                        <input type="submit" name="fileSubmit">
+                    </form>
+                    <p class="mt-4 text-info">Only JPG/JPEG file</p>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

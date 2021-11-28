@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Testify - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <main id="main">
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Testimonials</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>Testimonials</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section class="testimonials" data-aos="fade-up">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Testimonials</h2>
+                    <p>Our collaborators below would like to share their testimonials with you. Do not hesitate to work with us, trust us.</p>
+                </div>
+                <div>
+                    <div class="testimonial-item">
+                        <h3>Jaqueline Rodel</h3>
+                        <h4>CEO</h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            I have been fortunate enough to work with ECorp, this company knows what they are talking about and what they are doing. You can trust them.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                    <div class="testimonial-item">
+                        <h3>Jhack Chirac</h3>
+                        <h4>CTO</h4>
+                        <p>
+                            <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                            I have rarely had such good collaboration in the professional field. Thank you ECorp for trusting me and growing my company.
+                            <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                        </p>
+                    </div>
+                    {% for testimonial in testimonials %}
+                        <div class="testimonial-item">
+                            <h3>{{ testimonial.name }}</h3>
+                            <h4>{{ testimonial.role }}</h4>
+                            <p>
+                                <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                {{ testimonial.message|raw }}
+                                <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                            </p>
+                        </div>
+                    {% endfor %}
+                    <div class="section-title mt-5">
+                        <h2>Testify</h2>
+                    </div>
+                    <form action="/?page=testimonials" method="POST">
+                        <div class="form-group mb-4">
+                            <label for="name">Full name</label>
+                            <input type="text" class="form-control" id="name" name="name" aria-describedby="nameHelp" placeholder="Enter name">
+                            <small id="nameHelp" class="form-text text-muted">example: John Doe</small>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="role">Role in company</label>
+                            <input type="text" class="form-control" id="role" name="role" aria-describedby="roleHelp" placeholder="Enter role">
+                            <small id="roleHelp" class="form-text text-muted">example: CTO</small>
+                        </div>
+                        <div class="form-group mb-4">
+                            <label for="content">Message</label>
+                            <textarea id="content" name="content" class="form-control" rows="3"></textarea>
+                        </div>
+                        <input type="submit" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

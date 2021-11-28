@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}JWT Checker - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <main id="main">
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>JWT Checker</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>JWT Checker</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section class="tools">
+            <div class="container">
+                <div class="section-title">
+                    <h2>JWT Checker</h2>
+                </div>
+                <div>
+                    <p class="text-center text-info">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6ImJvYiIsInJhbmsiOiJ1c2VyIiwiaWF0IjoxNTE2MjM5MDIyfQ.hMT9XTFb1G6_gECTQNxAH-8ZffOqC6IFbuIGmXArP1U</p>
+                    <p class="text-center text-success">{{ flag }}</p>
+                    <form action="#" method="post">
+                        <textarea id="token" name="token" class="form-control mb-3"></textarea>
+                        <input type="submit" id="formSubmit" name="formSubmit" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

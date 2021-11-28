@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Search - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <main id="main">
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Search</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>Search</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section class="search">
+            <div class="container">
+                <div class="section-title"><h2>Search</h2></div>
+                <form id="seachForm">
+                    <input type="text" class="form-control" id="keyword" name="keyword" placeholder="keyword">
+                    <input type="submit" id="formSubmit" class="btn btn-primary mt-2">
+                </form>
+
+                {% if app.query.q %}
+                    <div class="section-title"><h2>Results</h2></div>
+                    <p>Sorry, no result for : {{ app.query.q|raw }}</p>
+                {% endif %}
+            </div>
+        </section>
+    </main>
+    <script>
+        let form = document.getElementById('searchForm');
+        let input = document.getElementById('keyword');
+        let submitButton = document.getElementById('formSubmit');
+        submitButton.addEventListener('click', ev => {
+           ev.preventDefault();
+           window.location = '?page=search&q='+input.value;
+        });
+    </script>
+{% endblock %}

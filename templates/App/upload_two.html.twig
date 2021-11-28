@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Landscapes - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <main id="main">
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Landscapes #ecorp</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>Landscapes</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section class="tools">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Landscapes</h2>
+                </div>
+                {% if flag %}
+                    <p class="text-center text-success">Flag : {{ flag }}</p>
+                {% endif %}
+                <div class="d-flex justify-content-center">
+                    <img src="/uploads/landscape/618064cd16f95.jpeg" alt="" width="250px" height="200px">
+                    <img class="mx-3" src="/uploads/landscape/618064cd16f96.jpeg" alt="" width="250px" height="200px">
+                </div>
+                <div>
+                    <hr class="my-5">
+                    <h3 class="mb-4">Upload your best landscape</h3>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type="file" id="imageFile" name="imageFile">
+                        <input type="submit" name="fileSubmit">
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+{% endblock %}

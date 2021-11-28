@@ -1,0 +1,57 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Selfies - {{ parent() }}{% endblock %}
+
+{% block body %}
+    <main id="main">
+        <section class="breadcrumbs">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center">
+                    <h2>Selfies #ecorp</h2>
+                    <ol>
+                        <li><a href="/">Home</a></li>
+                        <li>Selfies</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+        <section class="tools">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Selfies</h2>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <img src="/uploads/photos/328.jpeg" alt="" width="200px" height="200px">
+                    <img class="mx-3" src="/uploads/photos/874.jpeg" alt="" width="250px" height="200px">
+                </div>
+                <div>
+                    <hr class="my-5">
+                    <h3 class="mb-4">Upload your best selfie</h3>
+                    <form action="" method="post" enctype="multipart/form-data">
+                        <input type="file" id="imageFile" name="imageFile" accept="image/*" onchange="validateImage()">
+                        <input type="submit" name="fileSubmit">
+                    </form>
+                    <p class="text-muted">.jpg file only</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="text/javascript">
+        function validateImage() {
+            const formData = new FormData();
+
+            const file = document.getElementById('imageFile').files[0];
+
+            formData.append('Filedata', file);
+            const t = file.type.split('/').pop().toLowerCase();
+            if (t !== 'jpeg' && t !== 'jpg') {
+                alert('Please select a valid image file');
+                document.getElementById('imageFile').value = '';
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+{% endblock %}
